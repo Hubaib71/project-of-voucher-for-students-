@@ -1,0 +1,41 @@
+Here's a basic implementation of a student voucher system in Python:
+
+*(link unavailable)*
+```
+class Voucher:
+	def __init__(self, code, description, discount):
+		self.code = code
+		self.description = description
+		self.discount = discount
+
+class Student:
+	def __init__(self, name, id):
+		self.name = name
+		(link unavailable) = id
+		self.vouchers = []
+
+def create_voucher(code, description, discount):
+	voucher = Voucher(code, description, discount)
+	return voucher
+
+def assign_voucher(student, voucher):
+	student.vouchers.append(voucher)
+
+def redeem_voucher(student, voucher_code):
+	for voucher in student.vouchers:
+		if voucher.code == voucher_code:
+			return voucher.discount
+	return "Voucher not found"
+
+# Example usage
+student1 = Student("John Doe", 123)
+voucher1 = create_voucher("VD1", "10% off", 0.1)
+assign_voucher(student1, voucher1)
+
+print(redeem_voucher(student1, "VD1"))  # Output: 0.1
+```
+This implementation defines two classes: `Voucher` and `Student`. The `Voucher` class represents a voucher with a unique code, description, and discount value. The `Student` class represents a student with a name, ID, and a list of assigned vouchers.
+
+The `create_voucher` function creates a new voucher instance, while the `assign_voucher` function assigns a voucher to a student. The `redeem_voucher` function checks if a student has a valid voucher and returns the discount value if found.
+
+Note that this is a simplified example and you may want to add more features, error handling, and data persistence (e.g., using a database) to a real-world implementation.
